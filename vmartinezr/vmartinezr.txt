@@ -1,1 +1,362 @@
 Hola
+
+Microsoft Windows [Versión 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation. Reservados todos los derechos.
+
+C:\Users\w7>d:
+
+D:\>dir
+ El volumen de la unidad D no tiene etiqueta.
+ El número de serie del volumen es: 9E2B-03B8
+
+ Directorio de D:\
+
+03/01/2018  08:08 p.m.    <DIR>          Application Data
+10/06/2018  11:26 p.m.    <DIR>          CarpetaCompartida
+09/02/2018  03:08 p.m.    <DIR>          Cloudera
+27/06/2017  03:15 p.m.    <DIR>          oracle
+10/07/2017  09:42 a.m.    <DIR>          vmartinezr
+               0 archivos              0 bytes
+               5 dirs  528,130,797,568 bytes libres
+
+D:\>cd vmartinezr
+
+D:\vmartinezr>dir
+ El volumen de la unidad D no tiene etiqueta.
+ El número de serie del volumen es: 9E2B-03B8
+
+ Directorio de D:\vmartinezr
+
+10/07/2017  09:42 a.m.    <DIR>          .
+10/07/2017  09:42 a.m.    <DIR>          ..
+14/06/2018  05:14 p.m.    <DIR>          Correo
+12/05/2018  09:14 a.m.    <DIR>          Descargas
+09/06/2018  11:53 a.m.    <DIR>          Documentos
+02/04/2018  11:32 a.m.    <DIR>          Google Drive
+16/02/2018  08:16 p.m.    <DIR>          Mi musica
+25/05/2018  08:35 p.m.    <DIR>          Mis imágenes
+08/05/2018  11:47 p.m.    <DIR>          Mis videos
+               0 archivos              0 bytes
+               9 dirs  528,130,797,568 bytes libres
+
+D:\vmartinezr>cd Documentos
+
+D:\vmartinezr\Documentos>mkdir YitJab
+
+D:\vmartinezr\Documentos>cd YitJab
+
+D:\vmartinezr\Documentos\YitJab>mkdir vmartinezr
+
+D:\vmartinezr\Documentos\YitJab>cd vmartinezr
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git clone https://github.com/YoNoFui/aquinohaynada.git
+Cloning into 'aquinohaynada'...
+remote: Counting objects: 4, done.
+remote: Total 4 (delta 0), reused 4 (delta 0), pack-reused 0
+Unpacking objects: 100% (4/4), done.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>
+D:\vmartinezr\Documentos\YitJab\vmartinezr>
+D:\vmartinezr\Documentos\YitJab\vmartinezr>
+D:\vmartinezr\Documentos\YitJab\vmartinezr>get commit -m "Victor Martínez"
+"get" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git commit -m "Victor Martínez"
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git config --global vmartinezr "Victor Hugo Martínez Rivero"
+error: key does not contain a section: vmartinezr
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git config --global vmartinezr "Victor Hugo Martinez Rivero"
+error: key does not contain a section: vmartinezr
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git config --global vmartinezr "Victor Hugo Martinez Rivero"
+error: key does not contain a section: vmartinezr
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git config --global vmartinezr "Victor Hugo Martinez Rivero"
+error: key does not contain a section: vmartinezr
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git push origin master
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git push origin master
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git config --global vmartinezr "Victor Hugo Martinez Rivero"
+error: key does not contain a section: vmartinezr
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git config --global user.name "vmartinezr"
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git config --global user.email "victormartinezrivero@gmail.com"
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git commit -m "Victor Martínez"
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>cd ..
+
+D:\vmartinezr\Documentos\YitJab>git commit -m "Victor Martínez"
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab>git commit -m "Victor Martinez"
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab>cd vmartinezr
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>dir
+ El volumen de la unidad D no tiene etiqueta.
+ El número de serie del volumen es: 9E2B-03B8
+
+ Directorio de D:\vmartinezr\Documentos\YitJab\vmartinezr
+
+14/06/2018  06:10 p.m.    <DIR>          .
+14/06/2018  06:10 p.m.    <DIR>          ..
+14/06/2018  06:11 p.m.    <DIR>          aquinohaynada
+               0 archivos              0 bytes
+               3 dirs  528,130,756,608 bytes libres
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git commit -m "Victor Martínez"
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>cd aquinohaynada
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>dir
+ El volumen de la unidad D no tiene etiqueta.
+ El número de serie del volumen es: 9E2B-03B8
+
+ Directorio de D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada
+
+14/06/2018  06:11 p.m.    <DIR>          .
+14/06/2018  06:11 p.m.    <DIR>          ..
+14/06/2018  06:11 p.m.    <DIR>          yonofui
+               0 archivos              0 bytes
+               3 dirs  528,130,756,608 bytes libres
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git commit -m "Victor Martínez"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+Everything up-to-date
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git commit -m "Victor Martínez"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git pull
+remote: Counting objects: 41, done.
+remote: Compressing objects: 100% (24/24), done.
+remote: Total 41 (delta 12), reused 37 (delta 8), pack-reused 0
+Unpacking objects: 100% (41/41), done.
+From https://github.com/YoNoFui/aquinohaynada
+   fcbc30c..9fa868b  master     -> origin/master
+Updating fcbc30c..9fa868b
+Fast-forward
+ AlbertoCastilloMX/Nada.txt   | 0
+ RafaelJacques/Holi.txt       | 0
+ fariza07/hola.txt            | 0
+ jctmmx/jc.tm                 | 1 +
+ jctmmx/jc2.tm                | 1 +
+ racostag/prueba2 - copia.txt | 1 +
+ racostag/prueba2.txt         | 1 +
+ urielmm/uriel.txt            | 0
+ 8 files changed, 4 insertions(+)
+ create mode 100644 AlbertoCastilloMX/Nada.txt
+ create mode 100644 RafaelJacques/Holi.txt
+ create mode 100644 fariza07/hola.txt
+ create mode 100644 jctmmx/jc.tm
+ create mode 100644 jctmmx/jc2.tm
+ create mode 100644 racostag/prueba2 - copia.txt
+ create mode 100644 racostag/prueba2.txt
+ create mode 100644 urielmm/uriel.txt
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git add .
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git commit -m "Victor Martínez"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+To https://github.com/YoNoFui/aquinohaynada.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/YoNoFui/aquinohaynada.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>cd .
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>cd ..
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git add .
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git commit -m "Victor Martínez"
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git push origin master
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git push origin master
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git commit -m "Victor Martínez"
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>git push origin master
+fatal: not a git repository (or any of the parent directories): .git
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr>cd aquinohaynada
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+To https://github.com/YoNoFui/aquinohaynada.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/YoNoFui/aquinohaynada.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+To https://github.com/YoNoFui/aquinohaynada.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/YoNoFui/aquinohaynada.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+To https://github.com/YoNoFui/aquinohaynada.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/YoNoFui/aquinohaynada.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+To https://github.com/YoNoFui/aquinohaynada.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/YoNoFui/aquinohaynada.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git pull
+remote: Counting objects: 60, done.
+remote: Compressing objects: 100% (37/37), done.
+remote: Total 60 (delta 21), reused 56 (delta 17), pack-reused 0
+Unpacking objects: 100% (60/60), done.
+From https://github.com/YoNoFui/aquinohaynada
+   9fa868b..edb8414  master     -> origin/master
+Updating 9fa868b..edb8414
+Fast-forward
+ Atorresc51020/torrespm.txt               |  0
+ LaChio/Nuevo - copia.txt                 |  0
+ LaChio/Nuevo.txt                         |  0
+ arturoldgrc/Nuevo documento de texto.txt |  1 +
+ bianca/aerolinea2.csv                    | 10 ++++++++++
+ deruiz/deruiz.txt                        |  0
+ naviyapa/Esto es un archivo vacio.txt    |  0
+ 7 files changed, 11 insertions(+)
+ create mode 100644 Atorresc51020/torrespm.txt
+ create mode 100644 LaChio/Nuevo - copia.txt
+ create mode 100644 LaChio/Nuevo.txt
+ create mode 100644 arturoldgrc/Nuevo documento de texto.txt
+ create mode 100644 bianca/aerolinea2.csv
+ create mode 100644 deruiz/deruiz.txt
+ create mode 100644 naviyapa/Esto es un archivo vacio.txt
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+Everything up-to-date
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>reboot
+"reboot" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable.
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git add .
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git commit -m "Victor Martínez"
+[master 9651b41] Victor Martínez
+ 1 file changed, 1 insertion(+)
+ create mode 100644 vmartinezr/vmartinezr.txt
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 325 bytes | 32.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/YoNoFui/aquinohaynada.git
+   edb8414..9651b41  master -> master
+
+D:\vmartinezr\Documentos\YitJab\vmartinezr\aquinohaynada>

@@ -1,0 +1,25 @@
+import operator
+
+contador = 0
+contador1 = 0
+contador2 = 0
+contador_de_letras = {}
+frase = "cuando cuentes cuentos cuenta cuantos cuentos cuentas"
+
+for x in range(len(frase)):
+   letra_actual = frase[x]
+   if letra_actual == " ":
+       contador1= contador1+1
+   if letra_actual != " ":
+       #El contador se incrementa en 1
+       contador = contador + 1
+   if letra_actual != "1":
+       #El contador se incrementa en  1
+       contador2 = contador2 + 1        
+       if letra_actual in contador_de_letras:
+           contador_de_letras [letra_actual] += 1           
+       else:
+           contador_de_letras [letra_actual] = 1
+          
+print("Numero total de palabras: " + str(contador1+1))
+print("Numero total de letras: " + str(contador2))

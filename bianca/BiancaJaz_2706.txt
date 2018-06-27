@@ -1,0 +1,2 @@
+tres=[x for x in range(31) if str(x)[-1]=='3']
+print(tres)

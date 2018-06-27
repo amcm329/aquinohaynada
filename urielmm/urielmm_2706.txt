@@ -1,7 +1,11 @@
 ##  Lista por comprensión
 ## Del [0,30] filtro que deje solamente los números que terminen en 3
 
-a = [x for x in range(30) if str(x).zfill(2)[1]=='3' ]
+## Opc: 1
+b = [x for x in range(30) if x%10==3 ]
+print(b)
 
+## Opc: 2
+a = [x for x in range(30) if str(x).zfill(2)[1]=='3' ]
 print(a)
 

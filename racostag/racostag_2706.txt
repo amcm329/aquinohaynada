@@ -1,0 +1,4 @@
+lista = ["lata","lete","liti","loto","lutu"]
+
+lc = [x for x in lista if x[1] not in 'eio']
+print(lc)

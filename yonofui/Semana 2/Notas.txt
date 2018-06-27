@@ -1,3 +1,6 @@
-texto 1 -> cuando cuentes cuentos cuenta cuantos cuentos cuentas
+Liga instalacion:
+http://community.cloudera.com/t5/Cloudera-Manager-Installation/Anaconda-parcels-installing-new-package-using-conda/td-p/49753
 
+Ejercicios conteo letras:
+texto 1 -> cuando cuentes cuentos cuenta cuantos cuentos cuentas
 texto 2 -> cuando cuentes cuentos cuenta cuantos cuentos cuentas por que si no cuentas cuantos cuentos cuentas nunca sabras cuantos cuentos sabes contar

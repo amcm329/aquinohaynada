@@ -1,0 +1,13 @@
+?cadena_1 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas"
+cadena_2 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas por que si no cuentas cuantos cuentos cuentas nunca sabras cuantos cuentos sabes contar"
+
+letras = {}
+
+for x in range(len(cadena_1)):
+    actual = cadena_1[x]
+    if actual in letras:
+        letras[actual] += 1
+    else:
+        letras[actual] = 1
+        
+print(letras)?

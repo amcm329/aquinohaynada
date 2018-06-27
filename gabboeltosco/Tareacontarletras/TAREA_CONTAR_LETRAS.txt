@@ -1,0 +1,13 @@
+
+cuentos = "cuando cuentes cuentos cuenta cuantos cuentos cuentas"
+
+ c_porletra = {}
+
+for x in range(len(cuentos)):
+    actual = cuentos[x]
+    if actual in c_porletra:
+        c_porletra[actual] += 1
+    else:
+        c_porletra[actual] = 1
+        
+print(c_porletra)​

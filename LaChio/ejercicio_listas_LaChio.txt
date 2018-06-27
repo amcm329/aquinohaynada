@@ -1,0 +1,31 @@
+t1 = "cuando cuentes cuentos cuentas"
+letras = []
+frecuencia = []
+
+for x in range(len(t1)):
+    letra = t1[x]
+    if letra not in letras and letra != ' ':
+        letras.append(t1[x])
+
+for x in range(len(letras)):
+    frecuencia.append(0)
+
+for x in range(len(letras)):
+    for y in range (len(t1)):
+        if t1[y] == letras[x]:
+            frecuencia [x] += 1
+
+print(letras)
+print(frecuencia)
+
+t2 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas por que si no cuentas cuantos cuentos cuentas nunca sabras cuantos cuentos sabes contar"
+letras = {}
+
+for x in range(len(t2)):
+    letra = t2[x]
+    if letra in letras:
+        letras[letra] += 1
+    else:
+        letras[letra] = 1
+        
+print(letras)

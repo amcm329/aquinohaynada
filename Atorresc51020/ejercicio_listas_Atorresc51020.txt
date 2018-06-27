@@ -1,0 +1,13 @@
+lista1 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas"
+lista2 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas por que si no cuentas cuantos cuentos cuentas nunca sabras cuantos cuentos sabes contar"
+
+frecuencia = {}
+
+for x in range(len(lista1)):
+    nueva = lista1[x]
+    if nueva in frecuencia:
+        frecuencia[nueva] += 1
+    else:
+        frecuencia[nueva] = 1
+        
+print(frecuencia)

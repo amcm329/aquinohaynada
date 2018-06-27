@@ -1,0 +1,15 @@
+#MARIO ALBERTO GARCIA CRUZ
+
+cadena = "cuando cuentes cuentos cuenta cuantos cuentos cuentas"
+cuenta=[]
+for c in range(len(cadena)):
+    
+    if cadena[c] not in cuenta and cadena[c] !=' ':
+        cuenta.append(cadena[c])
+        
+print("El numero de letras repetidas es:")
+
+for x in range(len(cuenta)):
+    
+    veces=cadena.count(cuenta[x])
+    print("Letra: " + cuenta[x] + ' se repite: ' + str(veces) + ' veces.')

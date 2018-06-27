@@ -1,0 +1,50 @@
+## La entrada "a" recibe el texto de entrada y "c" el caracter que se desea omitir del conteo, para este ejemplo se omite " "
+
+texto1 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas"
+texto2 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas por que si no cuentas cuantos cuentos cuentas nunca sabras cuantos cuentos sabes contar"
+
+def charcount(a,c):
+    Uniq_key = []
+    Count =[]
+    
+    for i in a:
+        if i!= c:
+            if i in Uniq_key:
+                    Count[Uniq_key.index(i)]+=1
+            else:
+                Uniq_key.append(i)
+                Count.append(1)
+    return [[Uniq_key[i],Count[i]] for i in range(len(Uniq_key))]
+	
+txt1 = charcount(texto1,' ')
+
+print(txt1)
+
+charcount(texto2,' ')
+
+txt2 = charcount(texto2,' ')
+
+print(txt2)
+
+
+## Ejercicio utilizando Diccionarios
+
+def  charcountDict(a,c):
+    Uniq_count ={}
+    for i in a:
+        if i!= c:
+            if i in Uniq_count.keys():
+                Uniq_count[i]+=1
+            else:
+                Uniq_count.update({i:1})
+    return Uniq_count
+	
+txt1 = charcountDict(texto1,' ')
+
+print(txt1)
+
+charcountDict(texto2,' ')
+
+txt2 = charcountDict(texto2,' ')
+
+print(txt2)

@@ -1,4 +1,4 @@
 lista = ["lata","lete","liti","loto","lutu"]
 
-lc = [x for x in lista if x[1] not in 'eio']
+lc = [x for x in lista if 'e' not in x and 'i' not in x and 'o' not in x]
 print(lc)

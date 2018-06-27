@@ -16,13 +16,20 @@ def charcount(a,c):
                 Count.append(1)
     return [[Uniq_key[i],Count[i]] for i in range(len(Uniq_key))]
 	
-charcount(texto1,' ')
+txt1 = charcount(texto1,' ')
+
+print(txt1)
 
 charcount(texto2,' ')
 
+txt2 = charcount(texto2,' ')
+
+print(txt2)
+
+
 ## Ejercicio utilizando Diccionarios
 
-defdef  charcountDictcharcoun (a,c):
+def  charcountDict(a,c):
     Uniq_count ={}
     for i in a:
         if i!= c:
@@ -32,7 +39,12 @@ defdef  charcountDictcharcoun (a,c):
                 Uniq_count.update({i:1})
     return Uniq_count
 	
-charcountDict(texto1,' ')
+txt1 = charcountDict(texto1,' ')
 
+print(txt1)
 
-charcountDictcharcoun (texto2,' ')
+charcountDict(texto2,' ')
+
+txt2 = charcountDict(texto2,' ')
+
+print(txt2)

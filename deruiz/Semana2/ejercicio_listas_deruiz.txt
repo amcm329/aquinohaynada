@@ -1,0 +1,17 @@
+texto1 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas"
+texto2 = "cuando cuentes cuentos cuenta cuantos cuentos cuentas por que si no cuentas cuantos cuentos cuentas nunca sabras cuantos cuentos sabes contar"
+
+textos = [texto1,texto2]
+
+letras = {}
+
+for i in range(len(textos)):    
+    for x in range(len(textos[i])):        
+        actual = textos[i][x]
+        if actual != " ":
+            if actual in letras:
+                letras[actual] += 1
+            else:
+                letras[actual] = 1
+        
+print(letras)

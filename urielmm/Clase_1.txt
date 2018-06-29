@@ -1,0 +1,170 @@
+## Semana 1: Clase 1
+
+# Definición de Big Data
+##	Comandos de Linux
+ - mkdir: Crear un directorio
+ 	+ Directorios
+	+ Archivos
+	+ Ligas suaves
+	+ Ligas Duras
+*T	+ (Investigar)
+		+ '-' Regular file
+		+ 'd' Directory
+		+ 'l' Symbolic link
+		+ 'p' Named pipe: Connect the output or one process to the input of another. They are used when the process must be executed under different user names and permissions.
+		+ 's' Socket: Used for inter-process communication.
+		+ 'c' / 'b' Device file.
+		+ 'D' Door: File communication between a client and a server.
+ - ls -l ; ls -lah; ll
+ - cd; cd~ (lleva al home del usuario); cd . (directorio actual); cd ..
+ - cat (regresa el contenido de un archivo) ; cat <archivo_1> <archivo_2> (concatena el contenido de dos archivos)
+ - echo <algo> > <archivo> <(imprime en un archivo)
+	* Existe > y >> (> es destructivo >> no destructivo)
+	* Entrada estandar (por interrupciones, por ejemplo el teclado)
+	* Salida estandar (se muestra la salida, por ejemplo en una pantalla)
+	* Error estandar (Donde llegan los errores en el sistema)
+ - man <comando> (manual de ayuda)
+ - tee (toma un archivo, le hace un procesamiento y después va a imprimir el resultado en pantalla y se guarda en un archivo)
+ - mv (mover archivo a otro directorio)
+ - touch (modifica la última fecha de acceso de un archivo, diferente )
+ - file <archivo> (tipo de archivo)
+ - clear / reset
+ - cat ~/.bash_history
+ - tail / head 
+
+## Semana 1: Clase 2
+
+ - Levantar los servicios de Cloudera: 
+	- sudo /home/cloudera/cloudera-manager --force --express
+ - Permisos en Linux: ls - lah
+	+ Tipo de archivo {-,d,l,* ; Owner(rwx); Group(rwx) ; Other(rwx)} 
+	+ groups <usuario> (Saber los grupos a los que pertenece un usuario)
+
+ - Cambio de permisos ( Octal)
+	+ chmod 777 <archivo> (Todos los permisos para O,G y Other)
+ - sudo chattr +i <archivo> (Solo el dueño puede modificar los archivos aún cuando tenga todos los permisos)
+	+lsattr <archivo> (Permisos para root que se dan con chttr)
+ - free -h (Información de la RAM)
+	+ -/+ buffers/cache ; free (Indica ,a RAM libre incluyendo el nunca utilizado y el que ya no se ocupa y que se tiene disponible)
+	+ Diferencia entre "está libre" y "no está siendo utilizado", en el registro de Mem se muestra el espacio totalmente libre.
+ - df -h (Infomración del Disco)
+	+ Se clasifica por rutas {Total;Ocupado;Libre}
+
+ - Dimensionar el tamaño de una tabla axlx32/1024^3 en GB 
+	donde a: columnas, l: registros y el 32 es el tamaño en Bytes 
+	promedio de cada registro.
+ - hdfs dfs -ls /
+ - Todos los servicios de cloudera se ligan a un usuario
+ - Procesos Concurrente, paralelo 
+	+ Concurrente: Corre en varios hilos en un solo procesador.
+	+ Paralelo: Ocurre en varios procesadores.
+	+ Distribuido: Ocurre en paralelo y concurrente.
+ - Sistema de archivos: Comunicación con el OS para saber cómo se manejan los archivos en el disco duro.
+ - HDFS 
+*[T1]	+Sistemas de archivos Distribuido, mencionarlos.
+ - HDFS:
+	+ Name Node: Almacena las direcciones de los archivos en el espacio distribuido.
+	+ Data Node: Guarda la información y si a caso  una referencia.
+ - Descomprimir con bzip2: bzip2 -d aerolinea.csv.bz2
+
+## Semana 1: Clase 3 
+ -  wc -l <archivo> (Regresa el número de registros de un archivo)
+ -  bzip2 (Mejor formato de compresión pero lento) cuando tiene "tar" lo único que hace es ser un contenedor, no el formato de compresión.
+ -  Cloudera HDFS: Factor de réplica default 2.
+ -  El archivo se puede particionar para replicar o el archivo completo.
+ - hdfs dfs : Enlista los comandos para HDFS
+ - Trasladar los archivos del sistema de archivos local al distribuido es manual.
+ - ls -lah / : C1 -> Permisos 
+	C2 -> Número de archivos que hacen referencia a ese directorio/archivo (liga)
+	C3 -> Usuario Propietario
+	C4 -> Grupo Propietario
+	C5 -> Tamaño del archivo (puede ser el tamaño del link)
+ - hdfs dfs -ls /
+ - Debido a los permisos no podemos colocar archivos en la raíz de HDFS
+	+ Para resolver creamos una carpeta con nuestro usuario para poder trabajar con el.
+	+ sudo -u hdfs hdfs dfs -mkdir /raw
+		+ Con sudo -u y hdfs toma el perfíl de hdfs para ejecutar el comando siguiente, dado que hdfs es 
+	+ sudo -u hdfs hdfs dfs -chown cloudera /raw 
+		+ Se cambia el propietario al usuario Cloudera, para que nuestro usuario fuera de HDFS tenga los permisos. 
+ -  sudo hdfs dfs -put aerolinea.csv /
+ - El esquema de carpetas es: raw, stagin, master.
+	+raw : Datos crudos
+	+stagin : Mismos archivos que en raw pero en otro formato (AVRO)
+	+master : Parquet y orc
+ - Un objeto serializable es un archivo que su contenido son bytes.
+ - AVRO es un formato serializable, dado que es un formato en bytes (Hexadecimal) es poco probable que se dañe al moverlo o transformarlo.
+ - Masterización: Asigna el tipo de dato correcto a cada elemento.
+ * - Guardar las primeras 10 lineas del archivo aerolinea.csv en aerolinea2.csv:
+	+echo $(head aerolinea.csv) -> aerolinea2.csv
+## - GIT
+	- Primero de hace un CLONE para tener una copia local, el Fork crea una copia en el servidor.
+	- Después se puede usar un PULL para actualizar en el local sin tener que clonar.
+	- 
+*[T1-R] Ceph, BeeGFS, Amazon S3
+
+## Semana 1: Clase 4
+
+ - GIT
+	+ git clone https://github.com/YoNoFui/aquinohaynada.git
+	+ git config --global user.name "urielmm"
+	+ git config --global user.mail "uriel.miranda.minon.contractor@bbva.com"
+	+ git add .
+	+ git commit -a -m "Subi carpeta de usuario urielmm"
+	+ git push origin master
+**	- para cloudera hay pasos adicionales
+**	- sudo yum update git
+**	- sudo yum update -y nss curl libcurl 
+**	- git clone https://github.com/YoNoFui/aquinohaynada.git
+**	- git remote set-url origin https://urielmm@github.com/YoNoFui/aquinohaynada.git
+**	- Realizar el add, commit y push
+- CAMBIAR PROPIETARIO:
+	- Mostrar grupo y usuario propietarios: ls -lah
+	- Cambiar propietario:
+		+chown <user> <file>
+		+chgrp <group> <file>
+
+##Semana 2: Clase 1
+
+- Orden de directorios y detalles:
+	- stagin: archivos crudos .csv, .txt
+	- raw: Formato AVRO
+	- master: Parquet
+- .bashrc
+	- Es por usuario, a menos que se hagan en root
+	- Para python3, se descarga el binario 
+	- Gzipped source tarball
+	- Descargar y descomprimir
+	- Carpeta bin del descomprimido
+	- export PATH=$PATH:/ruta_python/python3.6.../bin
+	- /usr/local para instalar python
+- Python:
+	- Librerias: Pandas, pickle, itertools
+	- Corren en paralelo y concurrente pero no distribuido 
+	+ https://docs.python.org/3/library/pickle.html
+	* find ruta_origen python
+	+ Python es un lenguaje no tipado, por lo cual se puden multiplicar un
+	  int por un string. Al ser no tipado es necesario declarar el tipo de
+	  dato para colocar un valor.
+
+*T(25Jun18)	- Utilizar ciclos IF ELSE y listas para tarea de Git
+		- Contar las ocurrencias de letras
+*E(02Jul18)	- git Semana2
+
+## Semana 2: Clase 2
+ - append es un insert al final ya que el insert debe tener valor y posición
+ - cuando hay un insert(-1,elemento):
+	+ El elemento en -1 en python para obtener la posición del arreglo
+	  Hace un a[0%n] o  a[1%n] hasta a[(n-1)%n]
+	+ Estructuras básicas en Python:
+	  + Arreglo, lista, set/conjunto
+	  + En conjunto no hay llave valor, solamente llave
+
+## Semana 2: Clase 3
+
+ - **PRECACUCION** git rm <ruta/archivo>
+	+ git rm /urielmm/uriel.txt
+	+ git commit -m "Eliminar archivo uriel.txt
+	+ git push origin master
+- git checkout: indica en que rama estas 
+	+ .gitignore : lo que se ponga en ese archivo no se sube en el push
+	+ file <archivo> : Muestra el tipo de archivo es con

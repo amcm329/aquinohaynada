@@ -1,0 +1,3 @@
+lista = ["lata","lete","liti","loto","lutu"]
+lista2=[lista[x] for x in range(len(lista)) if lista[x].find("i") == -1 and lista[x].find("e") == -1 and lista[x].find("o") == -1 ]
+print(lista2)

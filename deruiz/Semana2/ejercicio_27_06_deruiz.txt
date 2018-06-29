@@ -1,0 +1,8 @@
+#lista por compresion que nos de solo los valores que contiene 3
+lista = [x for x in range(30) if '3' in str(x)]
+print(lista)
+
+#lista por comprension que te de las palabras que no contengan e, i, o
+lista = ["lata","lete","liti","loto","lutu"]
+lc = [x for x in lista if 'e' not in x and 'i' not in x and 'o' not in x]
+print(lc)

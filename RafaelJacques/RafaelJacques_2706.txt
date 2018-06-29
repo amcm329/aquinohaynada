@@ -1,0 +1,2 @@
+lista=[i for i in range(0,31) if '3' in str(i)]
+print(lista)

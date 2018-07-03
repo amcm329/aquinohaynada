@@ -1,0 +1,3 @@
+lc = ["lata","lete","liti","loto","lutu"]
+
+print("lista lc: "+ lc[0]+" "+lc[-1])

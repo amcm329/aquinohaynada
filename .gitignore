@@ -1,0 +1,9 @@
+#Compiler outputs#
+*.a
+*.bat
+*.exe
+*.DS_Store
+*.ipynb_checkpoints
+.DS_Store
+.ipynb_checkpoints
+Â

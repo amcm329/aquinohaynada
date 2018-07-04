@@ -1,0 +1,24 @@
+Length esta en las secuencias y Size en los iteradores.
+https://github.com/scala/collection-strawman/issues/147
+
+var cadena = "HOLA MUNDO"
+var des = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z")
+var cif = Array("d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z","a","b","c")
+var pos = 0
+var cadena2 = ""
+var cadena3 = ""
+for (i <- 0 to cadena.length-1){
+  try{
+    pos=des.indexOf(cadena(i).toLower.toString)
+    cadena2+=cif(pos)
+    //System.out.print(cadena2)
+  }catch{
+    case e : Exception =>  System.out.print(" ")
+  }
+}
+System.out.println(cadena2)
+for (i <- 0 to cadena2.length-1){
+  pos=cif.indexOf(cadena2(i).toLower.toString)
+  cadena3+=des(pos)
+}
+System.out.println(cadena3)

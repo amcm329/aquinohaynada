@@ -1,0 +1,28 @@
+---------------------------Tarea 1-----------------------------
+Diferencia entre size y length:Ambos muestran el mismo resultado, en este caso nos indican que el arreglo contiene 4 elementos. Se menciona que es má eficiente utilizar length
+
+scala> val number=Array(1,2,3,4)
+number: Array[Int] = Array(1, 2, 3, 4)
+
+scala> number.length
+res6: Int = 4
+
+scala> number.size
+res7: Int = 4
+
+---------------------------Tarea 2-----------------------------
+
+var diccionario=Array
+("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+var int =0
+var texto="KRODPXQGR"
+
+
+scala> for (i<- 0 to texto.length()-1)
+     | {
+     | var letra=texto(i).toLower.toString()
+     | var indice1=diccionario.indexOf(letra)
+     | var indexFin=(indice1-3)%26
+     | print (diccionario(indexFin))
+     | }
+holamundo

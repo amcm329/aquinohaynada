@@ -1,0 +1,38 @@
+
+size = es el metodo que calcula el numero de elementos en un collect y regresa los tamaños
+length = regresa la longitug de una cadea en caracteres
+
+
+http://otfried.org/scala/string.html
+http://allaboutscala.com/tutorials/chapter-8-beginner-tutorial-using-scala-collection-functions/scala-size-example/
+
+var cadena = "HOLA MUNDO"
+var descifrado = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z")
+var cifrado =    Array("d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z","a","b","c")
+
+var i;
+var pos:Int =0;
+var cadenaCifrada = "";
+var cadenaDecifrada = "";
+
+for (i <- 0 to cadena.length -1) {
+    //System.out.println(cadena(i))
+    pos = descifrado.indexOf(cadena(i).toLower.toString);
+    if (pos != -1) {
+      //System.out.println(cifrado(pos % 26));
+      cadenaCifrada += cifrado(pos);
+    }
+}
+
+System.out.println(cadenaCifrada);
+
+for (i <- 0 to cadenaCifrada.length -1) {
+  pos = cifrado.indexOf(cadenaCifrada(i).toLower.toString);
+
+  if (pos != -1) {
+    //System.out.println(cifrado(pos % 26));
+    cadenaDecifrada += descifrado(pos);
+  }
+}
+
+System.out.println(cadenaDecifrada.toUpperCase);

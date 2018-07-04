@@ -1,0 +1,15 @@
+Diferencia entre size() y length:
+Funcionalmente son equivalentes y devuelven el mismo valor, pero en cuanto a rendimiento .size() implica una llamada a una función y .length no
+
+Referencia:https://es.stackoverflow.com/questions/98465/cuál-es-la-diferencia-entre-size-y-length-en-jquery
+
+Código Descifrado: 
+
+var clave= Array ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+var texto= "krodpxqgr"
+var it = texto.toIterator
+
+while (it.hasNext){
+        println(clave((clave.indexOf(it.next().toString) - 3 )%26))
+     }
+

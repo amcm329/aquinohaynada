@@ -49,3 +49,22 @@ print(textDescifrado)
 
 
 
+
+
+
+
+
+
+Diferencia entre length y Size en scala:
+
+Size llama a length, size hace un llamado a una función pero length no. Por otro lado size solamente existe para Seq mientras que size existe para trasnversable.
+
+Fuente:
+
+https://stackoverflow.com/questions/22966705/scala-what-is-the-difference-between-size-and-length-of-a-seq
+https://es.stackoverflow.com/questions/98465/cu%C3%A1l-es-la-diferencia-entre-size-y-length-en-jquery
+
+
+
+
+

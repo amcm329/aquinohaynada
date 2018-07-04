@@ -1,0 +1,26 @@
+Función Size en Scala: 
+
+La función Size se aplica para datos estructurados mutables e inmutables. 
+Calcula el número de elementos en una colección y regresa su tamaño.
+
+Función Length en Scala: 
+Es el tamaño de un array.
+
+https://www.scala-lang.org/api/current/scala/collection/Iterable.html
+https://www.scala-lang.org/api/2.12.1/scala/Array.html
+https://www.scala-lang.org/api/current/scala/collection/Seq.html#length:Int
+
+
+def descifradoCesar(texto:String) {
+     val i:Int=0
+     var descifrado = Array("d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","a","b","c")
+     var cifrado = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+     for (i<- 0 to texto.length() - 1){
+        var indice_1=descifrado.indexOf(texto(i).toLower.toString())
+             if (indice_1 == -1) {
+                     print(" ")}
+            else  { var letraCifrada=cifrado(indice_1%26)
+                print(letraCifrada)}}
+}
+
+descifradoCesar("krod pxqgr")

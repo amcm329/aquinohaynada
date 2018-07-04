@@ -1,0 +1,70 @@
+var descifrado = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+var cifrado = Array("d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","a","b","c")
+val i:Int = 0
+
+var text:String = "HOLA MUNDO"
+var textCifrado:String = ""
+
+
+for (i <- 0 to text.length() -1){
+        var letra =text(i).toLower.toString()
+        var indice1= descifrado.indexOf(letra)
+        if(indice1 != -1) //indice1 + 3
+                {
+                var letraCifrada = cifrado((indice1)%26)
+                textCifrado+=letraCifrada
+                }
+}
+
+print(textCifrado)
+//Option = Some(2).getOrElse(1)
+
+val i:Int = 0
+
+var text:String = "HOLA MUNDO"
+var textCifrado:String = ""
+
+
+for (i <- 0 to text.length() -1){
+        var letra =text(i).toLower.toString()
+        var indice1= descifrado.indexOf(letra)
+        if(indice1 != -1) //indice1 + 3
+                {
+                var letraCifrada = cifrado((indice1)%26)
+                textCifrado+=letraCifrada
+                }
+}
+
+print(textCifrado)
+//Option = Some(2).getOrElse(1)
+
+var textCifradoIt:Iterator[Char] = textCifrado.toIterator
+var textDescifrado:String = ""
+
+while (textCifradoIt.hasNext){
+        textDescifrado+=(descifrado((cifrado.indexOf(textCifradoIt.next().toString))%26))
+     }
+
+print(textDescifrado)
+
+
+
+
+
+
+
+
+
+Diferencia entre length y Size en scala:
+
+Size llama a length, size hace un llamado a una función pero length no. Por otro lado size solamente existe para Seq mientras que size existe para trasnversable.
+
+Fuente:
+
+https://stackoverflow.com/questions/22966705/scala-what-is-the-difference-between-size-and-length-of-a-seq
+https://es.stackoverflow.com/questions/98465/cu%C3%A1l-es-la-diferencia-entre-size-y-length-en-jquery
+
+
+
+
+

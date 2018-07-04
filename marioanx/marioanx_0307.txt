@@ -1,0 +1,16 @@
+¿Cuál es la diferencia entre el tamaño y la longitud de un Seq? ¿Cuándo usar uno y cuándo el otro?
+
+scala> var a: Seq [String] = Seq ("uno", "dos")
+a: Seq [String] = Lista (uno, dos)
+
+scala> a.size
+res6: Int = 2
+
+scala> a.length
+res7: Int = 2
+
+
+el tamaño se define en GenTraversableOnce, mientras que la longitud se define en GenSeqLike,
+ por lo que la longitud solo existe para Seqs, mientras que el tamaño existe para todos los Traversables.
+ Para Seqs, sin embargo, como ya se señaló, el tamaño simplemente delega la longitud (lo que probablemente significa que, 
+después de la alineación, obtendrá un bytecode idéntico).

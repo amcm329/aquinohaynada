@@ -1,0 +1,34 @@
+Size es un metodo y length es una funcion, length tiene la ventaja que no genera sobrecarga
+
+https://es.stackoverflow.com/questions/98465/cu%C3%A1l-es-la-diferencia-entre-size-y-length-en-jquery
+
+var cadena = "HOLA MUNDO"
+var descifrado = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z")
+var cifrado =    Array("d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","x","y","z","a","b","c")
+
+
+var i;
+var x:Int =0;
+var cadenaC = "";
+var cadenaD = "";
+
+for (i <- 0 to cadena.length -1) {
+  x = descifrado.indexOf(cadena(i).toLower.toString);
+  if (x != -1) {
+     cadenaC += cifrado(x);
+  }
+}
+
+System.out.println(cadenaC);
+
+for (i <- 0 to cadenaC.length -1) {
+  x = cifrado.indexOf(cadenaC(i).toLower.toString);
+
+  if (x != -1) {
+  
+    cadenaD += descifrado(x);
+  }
+}
+
+System.out.println(cadenaD.toUpperCase);
+

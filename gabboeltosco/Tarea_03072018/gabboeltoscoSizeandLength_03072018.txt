@@ -1,0 +1,22 @@
+scala> var a :Seq[String] = Seq("one", "two")
+a: Seq[String] = List(one, two)
+
+scala> a.size
+res6: Int = 2
+
+scala> a.length
+res7: Int = 2
+
+Fuente: https://stackoverflow.com/questions/22966705/scala-what-is-the-difference-between-size-and-length-of-a-seq/22966807
+
+
+We could spend forever ascribing arbitrary distinctions to length vs size, based on english dictionary definitions, storage formats, collection invariants, and other bases, but I think those are all distinctions that approximately 0% of the community will care about.
+
+In the end, people just want to see how many things are in their thing.
+
+I do not think calling .length on Sets and Maps will cause any confusion at all, nor would encouraging people to call an extension method .size on Strings and Arrays.
+
+In fact, if we really wanted we could compiler-magic away the default .length on Strings and Arrays and force people to call .size, like how Scala.js compiler-magics away the native .map on JS arrays and the native .split on JS strings.
+
+The bottom line is that we really should have just one of them. I personally don't care which one.
+https://github.com/scala/collection-strawman/issues/147

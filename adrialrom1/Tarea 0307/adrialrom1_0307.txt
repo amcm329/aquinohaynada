@@ -1,0 +1,44 @@
+¿Cuál es la diferencia entre size y length?
+
+"In the old times when C ruled, "size" was the fixed number of bytes allocated 
+for something, while "length" was the smaller, variable number of bytes actually 
+in use. Generally, "size" stood for something fixed, while "length" stood for 
+something variable. But it was still not uncommon for someone to say that 
+"a machine word is 32 bits long" instead of "the size of a machine word is 
+32 bits", despite the fact that the number of bits in a machine word is, of course, 
+very fixed."
+
+Es decir, cuando se requiera saber el tamaño que ocupa una variable el general
+ya sea en un proceso o sólo para guardar un dato se utiliza un size, ay que nos
+va a dar a conocer el espacio de memoria que ocupa y no es algo que se pueda
+llegar a alterar o modificar.
+En cambio, si queremos saber cuánto espacio podemos utilizar para almacenar 
+en una variable y, si es necesario utilizar un poco más, se utiliza un length.
+
+También se emnciona que size resulta ser una función que al momento de ejecutarse
+puede hacer que el procesos se vuelva más lento de lo normal que a comparación 
+de un length
+
+https://softwareengineering.stackexchange.com/questions/303909/what-is-the-difference-between-size-and-length
+
+https://es.stackoverflow.com/questions/98465/cu%C3%A1l-es-la-diferencia-entre-size-y-length-en-jquery
+
+for(i <- 0 to mensaje.length()-1){
+var letra=mensaje(i).toLower.toString()
+var indice_1=descifrado.indexOf(letra)
+if (indice_1 != -1){
+var letracifrada=cifrado(indice_1 %26)
+println(letracifrada)
+ }
+ }
+****************************************************
+for (i<- 0 to mensajec.length() - 1){
+var indice_1=cifrado.indexOf(mensajec(i).toString())
+if (indice_1 == -1){
+print(" ")
+}
+else { 
+var letraCifrada=descifrado(indice_1%26)
+print(letraCifrada)
+}
+}

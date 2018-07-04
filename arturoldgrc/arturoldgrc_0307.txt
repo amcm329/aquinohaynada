@@ -1,0 +1,34 @@
+/*
+length : Longitud, nos da el numero de elementos en el vector.
+size   : El tamaño de esta secuencia y Coleccion, es equivalente a la longitud.
+
+Diferencia:  
+size () es un método especificado en java.util.Collection, que luego hereda cada estructura de datos en la biblioteca estándar. 
+length es un campo en cualquier matriz, y length () es un método en java.lang.String, que no es más que un delgado envoltorio en una char [].
+Por diseño, las matrices y cadenas son inmutables, y todas las subclases de colección de nivel superior son mutables. 
+Entonces, cuando ve "length", sabe que es constante, y donde ve "size" no es así. (size no terminará para colecciones infinitas).
+Fuente:https://stackoverflow.com/questions/20192843/difference-between-size-and-length-methods
+*/
+
+
+/*PROGRAMA DESCIFRADO CESAR*/
+def Descifrado( texto: String ):Unit= 
+{
+val abcdes = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+val abccif = Array("d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","a","b","c")
+
+	for (i <- texto )
+	{
+		var letra = i.toLower.toString() 
+		var indice1 = abccif.indexOf(letra)
+		if (indice1 != -1) 
+			{
+			var letraCifrada = abcdes(indice1 % 26)
+			print(letraCifrada)
+			}
+			else 
+			{	
+			print(" ") 
+			}
+	}
+}

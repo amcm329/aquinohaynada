@@ -1,0 +1,5 @@
+lista = ["lata","lete","liti","loto","lutu"]
+lista.remove("lete") 
+lista.remove("liti") 
+lista.remove("loto") 
+lista

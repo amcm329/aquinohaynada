@@ -1,0 +1,37 @@
+//CODIGO SCALA PARA DESENCRIPAR UN MENSAJE
+//DESENCRIPTAR
+var aAbecedario = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+var texto = "krod pxqgr";
+var iContador = 0;
+
+for (iContador <- 0 to texto.length()-1)
+{
+   var letra = texto(iContador).toLower.toString();
+   var indice1 = aAbecedario.indexOf(letra)
+   var letraDescifrada = " "
+   if (indice1 != -1)
+   {
+      letraDescifrada = aAbecedario((indice1-3) % 26)
+      print(letraDescifrada)
+   }
+   else
+   {
+      print(" ");
+   }
+}
+
+
+
+///INVESTIGACIÓN
+LENGTH
+Devuelve el número de caracteres contenidos en el objeto de cadena.
+https://www.tutorialspoint.com/scala/scala_strings.htm
+
+SIZE
+Calcula el número de elementos en una colección y devuelve su tamaño.
+http://allaboutscala.com/tutorials/chapter-8-beginner-tutorial-using-scala-collection-functions/scala-size-example/
+
+SIZE se define en GenTraversableOnce, mientras que LENGTH se define en GenSeqLike.
+https://stackoverflow.com/questions/22966705/scala-what-is-the-difference-between-size-and-length-of-a-seq/22966807
+
+LENGTH es para String y SIZE sí se puede usar dentro de otros elementos, como por ejemplo Listas

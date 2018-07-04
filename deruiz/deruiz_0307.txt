@@ -1,0 +1,12 @@
+********************DIFERENCIA ENTRE ***************************
+Basicamente son sinonimos, pero nos dice que size es obsoleto y que pueden afectar el rendimiento del codigo
+
+FUENTE: https://pavelfatin.com/scala-collections-tips-and-tricks/#sequences-length
+
+********************EJERCICIO DE DESCIFRADO***************************
+var cifrado = "krodpzqgr"
+var it = cifrado.toIterator
+
+while (it.hasNext){
+         println(descifrado((descifrado.indexOf(it.next().toString) - 3 )%26))
+      }

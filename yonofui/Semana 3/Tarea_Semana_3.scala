@@ -11,7 +11,7 @@ Aprovechando la tarea, se trata además de visualizar de manera concreta la impl
 funciones en este lenguaje.
 
 En lo que respecta a la entrega, se debe colocar en su directorio de Git un subdirectorio nombrado
-"Tarea Semana 3" y dentro debe de estar una copia de este archivo (resuelto evidentemente)SIN MODIFICAR.
+"Tarea Semana 3" y dentro debe de estar una copia de este archivo (resuelto evidentemente) SIN MODIFICAR EL NOMBRE DEL ARCHIVO.
 
 Todos los ejercicios son obligatorios sin excepciones. La fecha de entrega es para el próximo 
 jueves 12 de Julio antes de las 11:59:59 hrs.

@@ -80,11 +80,20 @@ Si el array de ingreso es vacía, se regresa la misma lista vacía.
 
 */
 def ejercicio2(lista:Array[Any]): Array[Any] = {
-    //Esto es un poco de azúcar sintáctica de Scala: 
-    //si por defecto no se le pone la palabra reservada return, Scala 
-    //asume que el elemento a regresarse es el último que se declaró
-    //dentro de la función y visto de arriba hacia abajo.
-    Array()
+//Esto es un poco de azúcar sintáctica de Scala: 
+//si por defecto no se le pone la palabra reservada return, Scala 
+//asume que el elemento a regresarse es el último que se declaró
+//dentro de la función y visto de arriba hacia abajo.
+
+var returnArray:Array[Any] = Array()
+
+for (it <- 0 to lista.length-1){
+if(lista(it) == 0)
+returnArray= Array(0)++returnArray
+else
+returnArray = returnArray++Array(lista(it))
+}
+return returnArray
 }
 
 

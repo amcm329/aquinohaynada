@@ -116,7 +116,19 @@ Si termino es negativo, el resultado debe dar -1
  
 */
 def ejercicio3(termino:Int):Int = {
-    0
+val fib:Array[Int] = Array(0,0,1)
+if(termino<0)
+return -1
+else if(termino <2)
+return fib(termino +1)
+else{
+for( I <- 0 to termino-1){
+fib(0) = fib(1)
+fib(1)=fib(2)
+fib(2)=fib(0)+fib(1)
+}
+return fib(0)
+}
 }
 
 
@@ -139,7 +151,19 @@ Apóyese del siguiente recurso:
 https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/
 */
 def ejercicio4(parentesis:String):Boolean = {
-    true
+var balance:Int = 0
+for (p <- parentesis){
+if(p==')')
+balance-=1
+else if (p=='(')
+balance+=1
+if(balance < 0)
+return false
+}
+if(balance == 0)
+return true
+else
+return false
 }
 
 
@@ -182,8 +206,59 @@ ejercicio5("","") = "ERROR"
 
 */
 def ejercicio5(multiplicando1:String,multiplicando2:String): String = {
-    ""
+var mm:Int = 0
+var nn:Int = 0
+var temp:Int = 0
+var resp:String = ""
+var carry:Int = 0
+var respSum:String = ""
+var respTot:String = ""
+
+if(multiplicando1 == "")
+return "ERROR"
+else if(multiplicando1 == "x")
+return "ERROR"
+else if(multiplicando2 == "")
+return "ERROR"
+else if(multiplicando2 == "x")
+return "ERROR"
+else{
+for(n <- multiplicando1.length-1 to 0 by -1){
+nn = multiplicando1(n).toString.toInt
+carry=0
+resp=""
+for(m <- multiplicando2.length-1 to 0 by -1){
+mm = multiplicando2(m).toString.toInt
+temp = mm*nn
+resp = (temp%10+carry).toString +resp
+carry = (temp/10).toInt
+if(m==0)
+resp=carry.toString+resp
 }
+
+if(n == multiplicando1.length-1)
+respSum = 0.toString+resp 
+else{
+resp = resp+"0"*(multiplicando1.length-n-1)
+
+//Sum one by one plus carry resp + respSum
+carry=0
+temp=0
+respTot =""
+for(i <- resp.length-1 to 0 by -1){
+temp = resp(i).toString.toInt + respSum(i).toString.toInt+carry
+respTot = (temp%10).toString +respTot
+carry=(temp/10).toInt
+if(i == 0)
+respTot = carry.toString+respTot
+}
+respSum=respTot
+}
+}
+return respSum.substring(1,respSum.length)
+}
+}
+
 
 
 /*

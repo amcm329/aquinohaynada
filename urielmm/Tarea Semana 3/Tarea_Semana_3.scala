@@ -31,11 +31,11 @@ Entonces en este caso es justamente lo que se debe retornar, una lista con esas 
 
 Casos especiales:
 
-ejercicio("") = List()
-ejercicio(" ") = List()
-ejercicio("muNdo") = List("Mundo","mUndo","munDo","mundO") //Es decir, si hay ya alguna letra con la "ola"
+ejercicio1("") = List()
+ejercicio1(" ") = List()
+ejercicio1("muNdo") = List("Mundo","mUndo","munDo","mundO") //Es decir, si hay ya alguna letra con la "ola"
                                                            //no se considera.
-ejercicio("MuNdo") = List("ERROR") //si la palabra tiene más de dos letras en mayúsculas, se considera ina-
+ejercicio1("MuNdo") = List("ERROR") //si la palabra tiene más de dos letras en mayúsculas, se considera ina-
                                    //propiada para la ola.
 
 */
@@ -51,7 +51,7 @@ var returnList:List[String]=List()
 for (c <- 0 to cadenaNoSpace.length-1){
 if(cadenaNoSpace(c).isUpper){
 uppers +=1
-if(uppers>2)
+if(uppers>1)
 return List("ERROR")
 }
 else{
@@ -106,8 +106,8 @@ Puede usar cualquier ciclo o iterador que desee y tantos como le funcionen.
 
 Ejemplo:
 
-ejercicio3(4) = [0,1,1,2] = 2
-ejercicio3(7) = [0,1,1,2,3,5,8] = 8
+ejercicio3(3) = [0,1,1,2] = 2
+ejercicio3(6) = [0,1,1,2,3,5,8] = 8
 
 Consideraciones:
 Si termino es 0, el resultado es 0
@@ -119,15 +119,13 @@ def ejercicio3(termino:Int):Int = {
 val fib:Array[Int] = Array(0,0,1)
 if(termino<0)
 return -1
-else if(termino <2)
-return fib(termino +1)
 else{
 for( I <- 0 to termino-1){
 fib(0) = fib(1)
 fib(1)=fib(2)
 fib(2)=fib(0)+fib(1)
 }
-return fib(0)
+return fib(1)
 }
 }
 
@@ -214,13 +212,7 @@ var carry:Int = 0
 var respSum:String = ""
 var respTot:String = ""
 
-if(multiplicando1 == "")
-return "ERROR"
-else if(multiplicando1 == "x")
-return "ERROR"
-else if(multiplicando2 == "")
-return "ERROR"
-else if(multiplicando2 == "x")
+if((multiplicando1 == "")||(multiplicando1 == "x")||(multiplicando2 == "")||(multiplicando2 == "x"))
 return "ERROR"
 else{
 for(n <- multiplicando1.length-1 to 0 by -1){
@@ -255,6 +247,9 @@ respTot = carry.toString+respTot
 respSum=respTot
 }
 }
+if(respSum.substring(0,2)=="00")
+return respSum.substring(2,respSum.length)
+else
 return respSum.substring(1,respSum.length)
 }
 }
@@ -269,11 +264,9 @@ List que a su vez contienen elementos también de tipo List.
 
 Ejemplos:
 
-
 ejercicio6(  List(List(2),    List(List(3,5)) ) = List(List(6,10),
-                  List(1))  ,                          List(-3,-5))
+                  List(1))  ,                          List(3,5))
  
-
 ejercicio6(List(List(3,0,0),  ,  List(List(1,0,0)   )  =  List(List(3,0,0)
                 List(0,2,0),          List(0,-1,0)             List(0,-2,0)
                 List(0,0,1))          List(0,0,-7))            List(0,0,-7))
@@ -288,9 +281,31 @@ List(List(elemento))
 
 */
 def ejercicio6(matriz1: List[List[Double]], matriz2: List[List[Double]]): List[List[Double]] = {
-    List(List())
+var m:Int = matriz1.length
+var n:Int = matriz1(0).length
+var p:Int = matriz2(0).length
+var tempSum:Double = 0
+
+var matrizc:List[List[Double]]=List(List())
+var matrizTemp:List[Double]=List()
+
+for(cm <- 0 to m-1){
+matrizTemp = List()
+for(cp <- 0 to p-1){
+tempSum = 0
+for(cn <- 0 to n-1){
+tempSum+=matriz1(cm)(cn)*matriz2(cn)(cp)
+}
+matrizTemp = matrizTemp:+tempSum
+}
+if(cm ==0)
+matrizc=List(matrizTemp)
+else
+matrizc = matrizc:+matrizTemp
 }
 
+return matrizc
+}
 
 /*
 *** EJERCICIO 7 ***
@@ -309,9 +324,19 @@ Asuma que el limite (n) siempre es positivo y mayor que 0.
 
 */
 def ejercicio7(n:Int): List[Int] = {
-    List()
-}
+var possibleValues:List[Int] = List.range(2,n*10)
+var primes:List[Int] = List()
+var tempPrime:Int = 0
 
+while(primes.length<n){
+
+tempPrime =possibleValues(0)
+primes = primes:+ tempPrime
+possibleValues = possibleValues.filter(_%tempPrime != 0)
+
+}
+return primes
+}
 
 /*
 *** EJERCICIO 8 ***
@@ -339,9 +364,19 @@ De nueva cuenta, este es de los pocos ejercicios en los que se verificará el c�
 
 */
 def ejercicio8(pangrama: String): Boolean = {
-    true
-}
+var uniqLetter:List[Char] = pangrama.toUpperCase.distinct.toList.sorted
+var aIndex:Int = uniqLetter.indexOf('A')
+var uniqLetterLength:Int = 0
 
+if(aIndex>=0)
+uniqLetterLength=uniqLetter.slice(aIndex,uniqLetter.length-1).length
+
+if(uniqLetterLength==25)
+return true
+else
+return false
+
+}
 
 /*
 *** EJERCICIO 9 ***
@@ -372,9 +407,22 @@ ejercicio9("") = "ERROR"
 
 */
 def ejercicio9(numeros:String): String = { 
-    ""
-}
+val strToNum:Map[String,Int] = Map("cero" -> 0,"uno" -> 1,"dos" -> 2,"tres" -> 3,"cuatro" -> 4,"cinco" ->5,"seis"->6,"siete"->7,"ocho" -> 8, "nueve" -> 9)
 
+val numToString:Map[Int,String] = Map(0->"cero",1->"uno",2->"dos",3->"tres",4->"cuatro",5->"cinco",6->"seis",7->"siete",8->"ocho", 9->"nueve")
+
+var textVal:List[String] = numeros.split(" ").toList
+
+var numList:List[Int] = List()
+
+for(i <- textVal){
+if(strToNum.keySet.contains(i))
+numList = numList:+strToNum(i)
+else
+return "ERROR"
+}
+return numToString((numList.sum/numList.length).toInt)
+}
 
 /*
 *** EJERCICIO 10 ***
@@ -390,7 +438,6 @@ Véase los siguientes ejemplos:
 ejercicio10("PARIS","LOUP") = "AOLXD"
 ejercicio10("MICHIGAN","HOUGHTON") = "TWWNPZOA"
 
-
 Consideraciones:
 Tome en cuenta que en la cadena origen sólo hay espacios 
 y letras mayúsculas y minúsculas del albafeto en inglés.
@@ -403,9 +450,22 @@ ejercicio10("","llave") = "ERROR"
 ejercicio10("","") = "ERROR"
 */
 def ejercicio10(entrada:String,clave:String): String={
-    ""
-}
+if((entrada =="")||(clave==""))
+return "ERROR"
 
+val abc:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var vigenere:String = ""
+var spaces:Int = 0
+
+for(l <- 0 to entrada.length -1)
+if(abc.contains(entrada(l)))
+vigenere  = vigenere:+abc((abc.indexOf(entrada(l))+abc.indexOf(clave((l-spaces)%clave.length)))%26)
+else{
+vigenere = vigenere:+entrada(l)
+spaces+=1
+}
+return vigenere
+}
 
 /*
 ¡Éxito en su ejercicio!

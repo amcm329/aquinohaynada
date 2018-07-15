@@ -168,14 +168,17 @@ List que a su vez contienen elementos también de tipo List.
 Ejemplos:
 
 
-ejercicio6(  List(List(2),    List(List(3,5)) ) = List(List(6,10),
-                  List(1))  ,                          List(-3,-5))
+ejercicio6(List(List(2) , List(List(3,5)) ) = List(List(6,10), List(1)),List(-3,-5))
  
 
-ejercicio6(List(List(3,0,0),  ,  List(List(1,0,0)   )  =  List(List(3,0,0)
-                List(0,2,0),          List(0,-1,0)             List(0,-2,0)
-                List(0,0,1))          List(0,0,-7))            List(0,0,-7))
-                                   
+ejercicio6(List( List(3,0,0)	List( List(1,0,0))     =  List( List(3,0,0)
+                 List(0,2,0)     	  List(0,-1,0)              List(0,-2,0)
+                 List(0,0,1))         List(0,0,-7))             List(0,0,-7)
+                )					)						   )
+
+				
+				
+ejercicio6(List(List(1,2,3),List(4,5,6), List(7,8,9)),List(List(9,8,7),List(6,5,4), List(3,2,1)))
 Consideraciones:
 
 Tanto matriz1 como matriz2 pueden ser de CUALQUIER dimensión, incluso de un sólo elemento.
@@ -185,7 +188,8 @@ regresar:
 List(List(elemento))
 
 */
-def ejercicio6(matriz1: List[List[Double]], matriz2: List[List[Double]]): List[List[Double]] = {
+def ejercicio6(matriz1: List[List[Double]], matriz2: List[List[Double]]): List[List[Double]] =
+{
     List(List())
 }
 

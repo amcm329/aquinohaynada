@@ -458,8 +458,8 @@ var vigenere:String = ""
 var spaces:Int = 0
 
 for(l <- 0 to entrada.length -1)
-if(abc.contains(entrada(l).toUpper))
-vigenere  = vigenere:+abc((abc.indexOf(entrada(l).toUpper)+abc.indexOf(clave((l-spaces)%clave.length).toUpper))%26)
+if(abc.contains(entrada(l)))
+vigenere  = vigenere:+abc((abc.indexOf(entrada(l))+abc.indexOf(clave((l-spaces)%clave.length)))%26)
 else{
 vigenere = vigenere:+entrada(l)
 spaces+=1

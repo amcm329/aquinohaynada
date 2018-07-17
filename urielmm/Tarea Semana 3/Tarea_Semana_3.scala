@@ -18,6 +18,7 @@ jueves 12 de Julio antes de las 11:59:59 hrs.
 
 */
 
+
 /*
 *** EJERCICIO 1 ***
 A éste se le llama el ejercicio de la ola (imitando a la ola de un estadio).
@@ -30,56 +31,38 @@ Entonces en este caso es justamente lo que se debe retornar, una lista con esas 
 
 Casos especiales:
 
-ejercicio("") = List()
-ejercicio(" ") = List()
-ejercicio("muNdo") = List("Mundo","mUndo","munDo","mundO") //Es decir, si hay ya alguna letra con la "ola"
+ejercicio1("") = List()
+ejercicio1(" ") = List()
+ejercicio1("muNdo") = List("Mundo","mUndo","munDo","mundO") //Es decir, si hay ya alguna letra con la "ola"
                                                            //no se considera.
-ejercicio("MuNdo") = List("ERROR") //si la palabra tiene más de dos letras en mayúsculas, se considera ina-
+ejercicio1("MuNdo") = List("ERROR") //si la palabra tiene más de dos letras en mayúsculas, se considera ina-
                                    //propiada para la ola.
 
 */
 def ejercicio1(cadena:String):List[String] = {
-//En términos estrictos se conserva la palabra reservada 
-//return para regresar el resultado en una función
+    //En términos estrictos se conserva la palabra reservada 
+    //return para regresar el resultado en una función
 
-import scala.collection.mutable.ListBuffer
-var ola = new ListBuffer[String]()
+var cadenaNoSpace:String = cadena.replace(" ","")
+var cadenaLower:String = cadenaNoSpace.toLowerCase
+var uppers:Int = 0
+var returnList:List[String]=List()
 
-var cadena2:String = cadena.replace(" ","")
-var letra:String = ""
-var numMay:Int = 0
-var indice:Int = -1
+for (c <- 0 to cadenaNoSpace.length-1){
+if(cadenaNoSpace(c).isUpper){
+uppers +=1
+if(uppers>1)
+return List("ERROR")
+}
+else{
+returnList= returnList :+ (cadenaLower.substring(0,c)+cadenaLower(c).toUpper+cadenaLower.substring(c+1,cadenaLower.length))
 
-for(k <- 0 to cadena2.length-1){ 
-if (cadena2(k).isUpper){ 
-numMay +=1 
-indice = k
 }
 }
-//println("Este es el indice: " + indice)
 
-if (numMay > 1){
-ola += "ERROR"
-} else {
-
-cadena2 = cadena2.toLowerCase
-
-for(i <- 0 to cadena2.length-1){ 
-var pal:String = ""
-letra = cadena2(i).toUpper.toString
-for(j <- 0 to cadena2.length-1){
-if (i == j) {pal = pal + letra} 
-else {pal = pal + cadena2(j).toString}
-}
-if (i != indice) {ola += pal}
+return returnList
 }
 
-}
-
-val olalist = ola.toList
-
-return olalist
-}
 
 /*
 *** EJERCICIO 2 ***
@@ -97,25 +80,22 @@ Si el array de ingreso es vacía, se regresa la misma lista vacía.
 
 */
 def ejercicio2(lista:Array[Any]): Array[Any] = {
-    //Esto es un poco de azúcar sintáctica de Scala: 
-    //si por defecto no se le pone la palabra reservada return, Scala 
-    //asume que el elemento a regresarse es el último que se declaró
-    //dentro de la función y visto de arriba hacia abajo.
-import scala.collection.mutable.ListBuffer
+//Esto es un poco de azúcar sintáctica de Scala: 
+//si por defecto no se le pone la palabra reservada return, Scala 
+//asume que el elemento a regresarse es el último que se declaró
+//dentro de la función y visto de arriba hacia abajo.
 
-var Arreglo:Array [Any] = Array("Error")
-var ceros = new ListBuffer[Int]()
-var algo = new ListBuffer[Any]()
+var returnArray:Array[Any] = Array()
 
-if(lista.isEmpty== false){
-for(x <- 0 to lista.length-1){
-if(lista(x)== 0) ceros += 0
-else algo = algo += lista(x)}
-Arreglo = List.concat(ceros,algo).toArray
+for (it <- 0 to lista.length-1){
+if(lista(it) == 0)
+returnArray= Array(0)++returnArray
+else
+returnArray = returnArray++Array(lista(it))
+}
+return returnArray
 }
 
-return Arreglo
-}
 
 /*
 *** EJERCICIO 3 *** 
@@ -126,8 +106,8 @@ Puede usar cualquier ciclo o iterador que desee y tantos como le funcionen.
 
 Ejemplo:
 
-ejercicio3(4) = [0,1,1,2,3] = 3
-ejercicio3(7) = [0,1,1,2,3,5,8,13] = 13
+ejercicio3(3) = [0,1,1,2] = 2
+ejercicio3(6) = [0,1,1,2,3,5,8] = 8
 
 Consideraciones:
 Si termino es 0, el resultado es 0
@@ -136,24 +116,22 @@ Si termino es negativo, el resultado debe dar -1
  
 */
 def ejercicio3(termino:Int):Int = {
-import scala.collection.mutable.ListBuffer
-var r = -1
-
-var n = new ListBuffer[Int]()
-n+=(0,1)
-
-if(termino > 1){
-for(x <- 2 to termino)
-n += n(x-1)+n(x-2)}
-
-if(termino > -1)
-r = n(termino)
-
-return r
+val fib:Array[Int] = Array(0,0,1)
+if(termino<0)
+return -1
+else{
+for( I <- 0 to termino-1){
+fib(0) = fib(1)
+fib(1)=fib(2)
+fib(2)=fib(0)+fib(1)
+}
+return fib(1)
+}
 }
 
+
 /*
-*** EJERCICIO 4 *** //positivos y negativos
+*** EJERCICIO 4 ***
 Implemente un método para verificar el balanceo y adecuada colocación de paréntesis, ejemplo
 
 ejercicio4("") = true
@@ -171,33 +149,21 @@ Apóyese del siguiente recurso:
 https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/
 */
 def ejercicio4(parentesis:String):Boolean = {
-
-def ejer4(prntss: List[Char], cuentaPar: Int): Int = {
-
-if (cuentaPar < 0) {-1}
-else {
-
-if (prntss.isEmpty) {
-cuentaPar
-} 
-else if (prntss.head == '(') {
-ejer4(prntss.tail, cuentaPar + 1)
+var balance:Int = 0
+for (p <- parentesis){
+if(p==')')
+balance-=1
+else if (p=='(')
+balance+=1
+if(balance < 0)
+return false
 }
-else if (prntss.head == ')'  ) {  //
-ejer4(prntss.tail, cuentaPar - 1)
+if(balance == 0)
+return true
+else
+return false
 }
-else {
-ejer4(prntss.tail, cuentaPar)
-} //segundo if
 
-}  //primer if
-
-}  //funcion interna
-
-if (ejer4(parentesis.toList, 0) == 0 ) {true}
-else {false}
-
-}
 
 /*
 *** EJERCICIO 5 ***
@@ -237,64 +203,58 @@ ejercicio5("","x") = "ERROR"
 ejercicio5("","") = "ERROR"
 
 */
-def ejercicio5(multiplicando1:String,multiplicando2:String): String = 
-{ 
-import scala.collection.mutable.ListBuffer
-var tem = new ListBuffer[String]()
-var r = "Error"
-var m1 = ""
-var m2 = ""
-var u = 0
-var d = 0
-var n = 0
-var b = false
+def ejercicio5(multiplicando1:String,multiplicando2:String): String = {
+var mm:Int = 0
+var nn:Int = 0
+var temp:Int = 0
+var resp:String = ""
+var carry:Int = 0
+var respSum:String = ""
+var respTot:String = ""
 
-tem += "0"
-
-if(multiplicando1.isEmpty == false & multiplicando2.isEmpty == false)
-{
-if(multiplicando1.length > multiplicando2.length)
-{
-m2 = multiplicando1
-m1 = multiplicando2
-}
-else 
-{
-m1 = multiplicando1
-m2 = multiplicando2
+if((multiplicando1 == "")||(multiplicando1 == "x")||(multiplicando2 == "")||(multiplicando2 == "x"))
+return "ERROR"
+else{
+for(n <- multiplicando1.length-1 to 0 by -1){
+nn = multiplicando1(n).toString.toInt
+carry=0
+resp=""
+for(m <- multiplicando2.length-1 to 0 by -1){
+mm = multiplicando2(m).toString.toInt
+temp = mm*nn
+resp = (temp%10+carry).toString +resp
+carry = (temp/10).toInt
+if(m==0)
+resp=carry.toString+resp
 }
 
-for(x <- 1 to m1.length)
-for(y <- 1 to m2.length)
-{
-tem += "0"
-n=m1(m1.length-x).asDigit * m2(m2.length-y).asDigit
-d = n/10
-u = n%10
-if(tem(y+x-2).toInt + u > 9)
-{
-tem(y+x-2) = ((tem(y+x-2).toInt + u)%10).toString
-tem(y+x-1) = (tem(y+x-1).toInt + 1).toString
+if(n == multiplicando1.length-1)
+respSum = 0.toString+resp 
+else{
+resp = resp+"0"*(multiplicando1.length-n-1)
+
+//Sum one by one plus carry resp + respSum
+carry=0
+temp=0
+respTot =""
+for(i <- resp.length-1 to 0 by -1){
+temp = resp(i).toString.toInt + respSum(i).toString.toInt+carry
+respTot = (temp%10).toString +respTot
+carry=(temp/10).toInt
+if(i == 0)
+respTot = carry.toString+respTot
 }
+respSum=respTot
+}
+}
+if(respSum.substring(0,2)=="00")
+return respSum.substring(2,respSum.length)
 else
-tem(y+x-2) = (tem(y+x-2).toInt + u).toString
-
-tem(y+x-1) = (tem(y+x-1).toInt + d).toString
-}
-
-r= ""
-for (x<-1 to tem.length)
-{
-if((tem(tem.length-x)!="0") || (b==true))
-{
-b = true
-r += tem(tem.length-x)
+return respSum.substring(1,respSum.length)
 }
 }
 
-}
-return r
-}
+
 
 /*
 *** EJERCICIO 6 ***
@@ -304,18 +264,13 @@ List que a su vez contienen elementos también de tipo List.
 
 Ejemplos:
 
-
-ejercicio6(List(List(2) , List(List(3,5)) ) = List(List(6,10), List(1)),List(-3,-5))
+ejercicio6(  List(List(2),    List(List(3,5)) ) = List(List(6,10),
+                  List(1))  ,                          List(3,5))
  
-
-ejercicio6(List( List(3,0,0)	List( List(1,0,0))     =  List( List(3,0,0)
-                 List(0,2,0)     	  List(0,-1,0)              List(0,-2,0)
-                 List(0,0,1))         List(0,0,-7))             List(0,0,-7)
-                )					)						   )
-
-				
-				
-ejercicio6(List(List(1,2,3),List(4,5,6), List(7,8,9)),List(List(9,8,7),List(6,5,4), List(3,2,1)))
+ejercicio6(List(List(3,0,0),  ,  List(List(1,0,0)   )  =  List(List(3,0,0)
+                List(0,2,0),          List(0,-1,0)             List(0,-2,0)
+                List(0,0,1))          List(0,0,-7))            List(0,0,-7))
+                                   
 Consideraciones:
 
 Tanto matriz1 como matriz2 pueden ser de CUALQUIER dimensión, incluso de un sólo elemento.
@@ -325,33 +280,31 @@ regresar:
 List(List(elemento))
 
 */
-<<<<<<< HEAD
 def ejercicio6(matriz1: List[List[Double]], matriz2: List[List[Double]]): List[List[Double]] = {
-import scala.collection.mutable.ListBuffer
-var res = new ListBuffer[List[Double]]()
-var tem = new ListBuffer[Double]()
-var c = 0.0
+var m:Int = matriz1.length
+var n:Int = matriz1(0).length
+var p:Int = matriz2(0).length
+var tempSum:Double = 0
 
-for(k <- 0 to matriz1.length-1)
-{
-tem.clear
-for(y <- 0 to matriz2(0).length-1)
-{
-c = 0.0
-for(x <- 0 to matriz2.length-1)
-{
-c += matriz1(k)(x)* matriz2(x)(y)
+var matrizc:List[List[Double]]=List(List())
+var matrizTemp:List[Double]=List()
+
+for(cm <- 0 to m-1){
+matrizTemp = List()
+for(cp <- 0 to p-1){
+tempSum = 0
+for(cn <- 0 to n-1){
+tempSum+=matriz1(cm)(cn)*matriz2(cn)(cp)
 }
-tem += c
+matrizTemp = matrizTemp:+tempSum
 }
-res += tem.toList
+if(cm ==0)
+matrizc=List(matrizTemp)
+else
+matrizc = matrizc:+matrizTemp
 }
-return res.toList
-=======
-def ejercicio6(matriz1: List[List[Double]], matriz2: List[List[Double]]): List[List[Double]] =
-{
-    List(List())
->>>>>>> fb8cf7871ffa871065e7af7589c150350dc92936
+
+return matrizc
 }
 
 /*
@@ -371,16 +324,18 @@ Asuma que el limite (n) siempre es positivo y mayor que 0.
 
 */
 def ejercicio7(n:Int): List[Int] = {
+var possibleValues:List[Int] = List.range(2,n*10)
+var primes:List[Int] = List()
+var tempPrime:Int = 0
 
-def eras(nums: Stream[Int]): Stream[Int] = {
-nums.head #:: eras(nums.tail.filter(_ % nums.head != 0))
-//nums.head #:: eras(nums.tail.filter({ x => println( nums"${nums.head} *** $x" ); x % nums.head != 0 }))
+while(primes.length<n){
+
+tempPrime =possibleValues(0)
+primes = primes:+ tempPrime
+possibleValues = possibleValues.filter(_%tempPrime != 0)
 
 }
-
-val listaf = eras(Stream.from(2)).take(n).toList
-
-return listaf
+return primes
 }
 
 /*
@@ -392,9 +347,10 @@ al menos una vez cada letra del alfabeto.
 
 Ejemplos:
 
-ejercicio8("El veloz murcielago hindu comia feliz cardillo y kiwi. La ciguena tocaba el saxofon detras del palenque de paja") = true
+ejercicio8("El veloz murcielago hindu comia feliz cardillo y kiwi. 
+La ciguena tocaba el saxofon detras del palenque de paja") = true
 
-ejercicio8("abcdefghijklmnopqrstuvwxyz") = false 
+ejercicio8("abcdefghijklmnopqrstuvwxy") = false 
 ejercicio8("") = false
 
 Consideraciones:
@@ -408,29 +364,18 @@ De nueva cuenta, este es de los pocos ejercicios en los que se verificará el c�
 
 */
 def ejercicio8(pangrama: String): Boolean = {
-var alfabeto = List('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z')
-var ora = pangrama.toLowerCase.replace('á','a').replace('é','e').replace('í','i').replace('ó','o').replace('ú','u').replace(" ","").sorted
-var ora2 = ora.toList
-var i = 0
-var bol = true
+var uniqLetter:List[Char] = pangrama.toUpperCase.distinct.toList.sorted
+var aIndex:Int = uniqLetter.indexOf('A')
+var uniqLetterLength:Int = 0
 
-if (ora.length-1 == 25 & alfabeto == ora2){
-bol = false
-} 
+if(aIndex>=0)
+uniqLetterLength=uniqLetter.slice(aIndex,uniqLetter.length-1).length
+
+if(uniqLetterLength==25)
+return true
 else
-{
-while (bol && i <= 25)
-{
-var cuenta = ora.count(_ == alfabeto(i))
-if (cuenta > 0) {
-//print(alfabeto(i)+ ":" + cuenta)
-bol = true
-}
-else {bol = false}
-i += 1
-} 
-}
-bol
+return false
+
 }
 
 /*
@@ -462,25 +407,21 @@ ejercicio9("") = "ERROR"
 
 */
 def ejercicio9(numeros:String): String = { 
-var map = Map("cero" -> 0, "uno" -> 1, "dos" -> 2, "tres" -> 3, "cuatro" -> 4, "cinco" -> 5, "seis" -> 6, "siete" -> 7, "ocho" -> 8, "nueve" -> 9)
-var map1 = Map (0 -> "cero", 1 -> "uno", 2 -> "dos", 3 -> "tres", 4 -> "cuatro", 5 -> "cinco", 6 -> "seis", 7 -> "siete", 8 -> "ocho", 9 -> "nueve")
-var res = ""
-var sum = 0
+val strToNum:Map[String,Int] = Map("cero" -> 0,"uno" -> 1,"dos" -> 2,"tres" -> 3,"cuatro" -> 4,"cinco" ->5,"seis"->6,"siete"->7,"ocho" -> 8, "nueve" -> 9)
 
-var tem = numeros.split(" ")
+val numToString:Map[Int,String] = Map(0->"cero",1->"uno",2->"dos",3->"tres",4->"cuatro",5->"cinco",6->"seis",7->"siete",8->"ocho", 9->"nueve")
 
-for(x <- 0 to tem.length-1)
-{
-if(map.contains(tem(x))&res != "Error")
-sum += map(tem(x))
+var textVal:List[String] = numeros.split(" ").toList
+
+var numList:List[Int] = List()
+
+for(i <- textVal){
+if(strToNum.keySet.contains(i))
+numList = numList:+strToNum(i)
 else
-res = "Error"
+return "ERROR"
 }
-
-if(res != "Error")
-res = map1(sum/tem.length)
-
-return res
+return numToString((numList.sum/numList.length).toInt)
 }
 
 /*
@@ -509,22 +450,23 @@ ejercicio10("","llave") = "ERROR"
 ejercicio10("","") = "ERROR"
 */
 def ejercicio10(entrada:String,clave:String): String={
-val cifrado = Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
-var entradal = entrada.toLowerCase
-var clavel = clave.toLowerCase
-var resultado = ""
-var i=0
-var j = 0
-if ((entrada.length > 0) && (clave.length > 0)) {
-for (i<-0 to entradal.length()-1) {
-if (i <= clavel.length-1){
-resultado += cifrado((cifrado.indexOf(entradal(i).toString) + cifrado.indexOf(clavel(i).toString) ) % 26)
+if((entrada =="")||(clave==""))
+return "ERROR"
+
+val abc:String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var vigenere:String = ""
+var spaces:Int = 0
+
+for(l <- 0 to entrada.length -1)
+if(abc.contains(entrada(l)))
+vigenere  = vigenere:+abc((abc.indexOf(entrada(l))+abc.indexOf(clave((l-spaces)%clave.length)))%26)
+else{
+vigenere = vigenere:+entrada(l)
+spaces+=1
 }
-else {
-resultado += cifrado((cifrado.indexOf(entradal(i).toString) + cifrado.indexOf(clavel(j).toString) ) % 26)
-j +=1
+return vigenere
 }
-}
-} else {resultado = "ERROR"}
-return resultado
-}
+
+/*
+¡Éxito en su ejercicio!
+*/

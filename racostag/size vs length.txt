@@ -1,0 +1,5 @@
+En este caso, pueden considerarse sinónimos. Es posible que desee tener cuidado con otros casos como Matriz, mientras que la longitud y el tamaño siempre devolverán el mismo resultado, en las versiones anteriores a la Escala 2.10 puede haber una sobrecarga de boxeo para el tamaño de llamada (que es proporcionada por un envoltorio Scala alrededor del Array), mientras que la longitud es proporcionada por la matriz subyacente de Java.
+
+El método .size() es funcionalmente equivalente a la propiedad .length; sin embargo es preferible usar la propiedad .length porque no tiene la sobrecarga de una llamada a una función.
+
+https://stackoverflow.com/questions/14733833/scala-buffer-size-or-length
